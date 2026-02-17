@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas Importantes - Lenguajes Formales y Autómatas</title>
+    <style>
+        /* --- RESET Y VARIABLES --- */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro académico */
+            --accent-color: #3498db;  /* Azul claro */
+            --bg-color: #f4f6f9;      /* Gris muy claro de fondo */
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            
+            /* Colores de Categoría */
+            --type-reto: #3498db;     /* Azul */
+            --type-parcial: #e67e22;  /* Naranja */
+            --type-final: #c0392b;    /* Rojo */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: transparent;
+        }
+
+        /* --- CABECERA --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        h2.subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        /* --- BOTÓN VOLVER --- */
+        .btn-volver {
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-volver:hover {
+            background-color: #1a252f;
+        }
+
+        /* --- LISTA DE FECHAS (GRID) --- */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1fr auto; /* Texto flexible, fecha ajustada */
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            align-items: center;
+            transition: transform 0.2s ease;
+            border-left: 5px solid #bdc3c7; /* Color por defecto */
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .event-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .event-date {
+            font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para fechas */
+            font-weight: bold;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-align: right;
+        }
+
+        /* --- CODIFICACIÓN DE COLORES --- */
+        /* Retos */
+        .type-reto { border-left-color: var(--type-reto); }
+        .type-reto .event-name { color: var(--type-reto); }
+
+        /* Parciales y Trabajos */
+        .type-parcial { border-left-color: var(--type-parcial); }
+        .type-parcial .event-name { color: var(--type-parcial); }
+
+        /* Finales */
+        .type-final { border-left-color: var(--type-final); }
+        .type-final .event-name { color: var(--type-final); }
+
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .btn-volver {
+                align-self: flex-end; /* Botón a la derecha en móvil también */
+                margin-top: -50px; /* Truco visual para mantenerlo arriba a la derecha */
+            }
+
+            .event-card {
+                grid-template-columns: 1fr; /* Una sola columna */
+                gap: 10px;
+            }
+
+            .event-date {
+                text-align: left;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Fechas Importantes</h1>
+                <h2 class="subtitle">Organización y Getión de Proyectos Basados en Datos</h2>
+            </div>
+            <a href="index.html" class="btn-volver">&#8617; Volver</a>
+        </header>
+
+        <div class="timeline">
+        
+            <article class="event-card type-reto">
+                <div class="event-name">Trabajo individual 1</div>
+                <div class="event-date">Viernes 27 Feb 2026</div>
+            </article>
+
+
+            <article class="event-card type-reto">
+                <div class="event-name">Trabajo individual 2</div>
+                <div class="event-date">Viernes 27 Mar 2026</div>
+            </article>
+
+            <article class="event-card type-parcial">
+                <div class="event-name">Segundo Parcial</div>
+                <div class="event-date">Martes 28 Abr 2026 (10:00)</div>
+            </article>
+
+            <article class="event-card type-parcial">
+                <div class="event-name">Trabajo Final</div>
+                <div class="event-date">Lunes 4 Mayo 2026</div>
+            </article>
+
+            <article class="event-card type-final">
+                <div class="event-name">Examen Final (1ª Conv.)</div>
+                <div class="event-date">Jueves 28 Mayo 2026 (12:00)</div>
+            </article>
+
+            <article class="event-card type-final">
+                <div class="event-name">Examen Final (2ª Conv.)</div>
+                <div class="event-date">Martes 23 Jun 2026 (12:00)</div>
+            </article>
+
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; color: #95a5a6; font-size: 0.8rem;">
+            &copy; 2026 Departamento de Computación
+        </footer>
+    </div>
+
+</body>
+</html>
