@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 - Planificación Territorial y Asignación de Cuotas.</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; color: #333; margin: 0; padding: 20px; line-height: 1.6; position: relative; }
+        header { background: #2c3e50; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align:center; }
+        h1 { margin: 0; font-size: 1.5rem; }
+
+        /* Estilo del botón Atrás */
+        .btn-atras {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #7f8c8d;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-atras:hover { background: #95a5a6; }
+
+        .subtema {
+            background: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 { color: #2980b9; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        h3 { color: #7f8c8d; font-size: 0.9em; text-transform: uppercase; margin-top: 30px; letter-spacing: 1px; border-left: 3px solid #d4af37; padding-left: 10px; }
+
+        .diagrama-box {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+
+        p { margin-bottom: 1rem; }
+        strong { color: #2c3e50; font-weight: 600; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <button onclick="window.history.back()" class="btn-atras">Atrás</button>
+    <header><h1>7 - Planificación Territorial y Asignación de Cuotas.</h1></header>
+    <main>
+
+        <article class="subtema">
+            <h2>Diseño y Optimización de Territorios de Ventas (Territory Design)</h2>
+
+            <h3>Historia</h3>
+            <div><p>A principios del siglo XX, la planificación territorial se basaba exclusivamente en fronteras geográficas estáticas. Los directores de ventas trazaban líneas en un mapa físico, asignando estados o provincias sin considerar la densidad de clientes. En la década de 1970, con la introducción de los primeros sistemas computarizados, comenzó a analizarse el coste de desplazamiento. Sin embargo, la verdadera revolución llegó en los años 90 y 2000 con los Sistemas de Información Geográfica (GIS) y la integración de los CRM. Estos avances permitieron una transición desde un modelo puramente espacial hacia un diseño de territorios funcional y dinámico. Hoy en día, la planificación territorial es una disciplina de la ciencia de datos que utiliza inteligencia artificial para cruzar variables macroeconómicas, historiales de compra y tiempos de ciclo, garantizando un equilibrio perfecto entre la carga de trabajo del vendedor y el potencial real del mercado.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>El diseño territorial técnico se rige fundamentalmente por el 'Método de Carga de Trabajo' (Workload Method) y el análisis de Potencial de Mercado. La premisa matemática es igualar el esfuerzo necesario para cubrir un territorio con el retorno esperado. Esto se calcula estimando el número total de cuentas, clasificándolas (p. ej., A, B, C según su valor), determinando la frecuencia y duración de visitas/contactos requeridos para cada categoría, y cruzándolo con el tiempo de venta disponible por representante (descontando tareas administrativas y desplazamientos).</p>
+<p>Por ejemplo, supongamos que una empresa tecnológica divide sus operaciones en España. Si utiliza una división puramente geográfica, un vendedor en Madrid (alta densidad de sedes corporativas) tendría un potencial de mercado masivo pero una carga de trabajo inabarcable, lo que generaría pérdida de oportunidades por falta de atención (under-servicing). Por otro lado, un vendedor en Extremadura tendría una carga de trabajo baja y un potencial insuficiente, frustrando sus opciones de cobrar comisiones. El enfoque técnico requiere crear 'micro-territorios' o territorios funcionales (por industria, independientemente del código postal). Así, Madrid podría dividirse en cuatro territorios por verticales (Banca, Retail, Salud, Industria), mientras que otras comunidades autónomas podrían agruparse para consolidar un potencial equivalente. Un territorio optimizado maximiza el 'Coverage' (cobertura de cuentas clave) y minimiza la canibalización entre vendedores, resultando empíricamente en un incremento de productividad de entre el 10% y el 20% sin añadir headcount.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="386pt" data-height="364pt"
+ viewBox="0.00 0.00 386.44 364.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 360)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-360 382.44,-360 382.44,4 -4,4"/>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<polygon fill="#f9f9f9" stroke="black" points="294.94,-356 133.94,-356 133.94,-320 294.94,-320 294.94,-356"/>
+<text text-anchor="middle" x="214.44" y="-334.3" font-family="Helvetica,sans-Serif" font-size="14.00">Inicio: Análisis Territorial</text>
+</g>
+<!-- EvaluarPotencial -->
+<g id="node2" class="node">
+<title>EvaluarPotencial</title>
+<polygon fill="#f9f9f9" stroke="black" points="312.94,-283 115.94,-283 115.94,-247 312.94,-247 312.94,-283"/>
+<text text-anchor="middle" x="214.44" y="-261.3" font-family="Helvetica,sans-Serif" font-size="14.00">Evaluar Potencial de Mercado</text>
+</g>
+<!-- Start&#45;&gt;EvaluarPotencial -->
+<g id="edge1" class="edge">
+<title>Start&#45;&gt;EvaluarPotencial</title>
+<path fill="none" stroke="black" d="M214.44,-319.81C214.44,-311.79 214.44,-302.05 214.44,-293.07"/>
+<polygon fill="black" stroke="black" points="217.94,-293.03 214.44,-283.03 210.94,-293.03 217.94,-293.03"/>
+</g>
+<!-- EstimarCarga -->
+<g id="node3" class="node">
+<title>EstimarCarga</title>
+<polygon fill="#f9f9f9" stroke="black" points="259.94,-210 14.94,-210 14.94,-174 259.94,-174 259.94,-210"/>
+<text text-anchor="middle" x="137.44" y="-188.3" font-family="Helvetica,sans-Serif" font-size="14.00">Calcular Carga de Trabajo (Workload)</text>
+</g>
+<!-- EvaluarPotencial&#45;&gt;EstimarCarga -->
+<g id="edge2" class="edge">
+<title>EvaluarPotencial&#45;&gt;EstimarCarga</title>
+<path fill="none" stroke="black" d="M195.8,-246.81C186.06,-237.83 173.98,-226.69 163.34,-216.89"/>
+<polygon fill="black" stroke="black" points="165.63,-214.23 155.91,-210.03 160.89,-219.38 165.63,-214.23"/>
+</g>
+<!-- Equilibrado -->
+<g id="node4" class="node">
+<title>Equilibrado</title>
+<polygon fill="#e2f0d9" stroke="black" points="131.44,-123 0.06,-105 131.44,-87 262.82,-105 131.44,-123"/>
+<text text-anchor="middle" x="131.44" y="-101.3" font-family="Helvetica,sans-Serif" font-size="14.00">¿Están equilibrados?</text>
+</g>
+<!-- EstimarCarga&#45;&gt;Equilibrado -->
+<g id="edge3" class="edge">
+<title>EstimarCarga&#45;&gt;Equilibrado</title>
+<path fill="none" stroke="black" d="M136.23,-173.8C135.4,-162.09 134.29,-146.34 133.34,-132.97"/>
+<polygon fill="black" stroke="black" points="136.83,-132.61 132.63,-122.89 129.84,-133.11 136.83,-132.61"/>
+</g>
+<!-- AjustarLimites -->
+<g id="node5" class="node">
+<title>AjustarLimites</title>
+<polygon fill="#f9f9f9" stroke="black" points="378.44,-36 202.44,-36 202.44,0 378.44,0 378.44,-36"/>
+<text text-anchor="middle" x="290.44" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Ajustar Límites / Verticales</text>
+</g>
+<!-- Equilibrado&#45;&gt;AjustarLimites -->
+<g id="edge4" class="edge">
+<title>Equilibrado&#45;&gt;AjustarLimites</title>
+<path fill="none" stroke="black" d="M156.99,-90.34C181.86,-77.05 220.07,-56.62 249.24,-41.02"/>
+<polygon fill="black" stroke="black" points="251.2,-43.95 258.37,-36.15 247.9,-37.77 251.2,-43.95"/>
+<text text-anchor="middle" x="228.94" y="-57.8" font-family="Times,serif" font-size="14.00">No</text>
+</g>
+<!-- AsignarVendedores -->
+<g id="node6" class="node">
+<title>AsignarVendedores</title>
+<polygon fill="#f9f9f9" stroke="black" points="183.94,-36 22.94,-36 22.94,0 183.94,0 183.94,-36"/>
+<text text-anchor="middle" x="103.44" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Asignar Representantes</text>
+</g>
+<!-- Equilibrado&#45;&gt;AsignarVendedores -->
+<g id="edge6" class="edge">
+<title>Equilibrado&#45;&gt;AsignarVendedores</title>
+<path fill="none" stroke="black" d="M126.04,-87.61C122.17,-75.85 116.86,-59.73 112.36,-46.07"/>
+<polygon fill="black" stroke="black" points="115.56,-44.62 109.11,-36.21 108.91,-46.81 115.56,-44.62"/>
+<text text-anchor="middle" x="125.44" y="-57.8" font-family="Times,serif" font-size="14.00">Sí</text>
+</g>
+<!-- AjustarLimites&#45;&gt;EvaluarPotencial -->
+<g id="edge5" class="edge">
+<title>AjustarLimites&#45;&gt;EvaluarPotencial</title>
+<path fill="none" stroke="black" d="M292.25,-36.13C295.15,-70.88 297.93,-151.33 269.44,-210 263.91,-221.38 254.97,-231.72 245.88,-240.23"/>
+<polygon fill="black" stroke="black" points="243.47,-237.7 238.29,-246.94 248.1,-242.94 243.47,-237.7"/>
+<text text-anchor="middle" x="303.44" y="-144.8" font-family="Times,serif" font-size="14.00">Iterar</text>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Imagina que eres el dueño de una gran finca agrícola y contratas a varios granjeros para cosechar. Si simplemente divides el terreno en parcelas de exactamente los mismos metros cuadrados, estarás cometiendo un error crítico. ¿Por qué? Porque una parcela puede tener tierra extremadamente fértil y plana, mientras que otra puede estar llena de rocas y en una ladera empinada. El granjero con la parcela rocosa trabajará el doble para obtener la mitad de la cosecha, se frustrará y eventualmente renunciará. El granjero con la parcela plana tendrá tanta cosecha que no podrá recogerla toda a tiempo, echándose a perder gran parte de ella.</p>
+<p>El diseño de territorios funciona exactamente igual. No se trata de darles a los vendedores el mismo tamaño de mapa geográfico, sino de asegurar que todos tengan la misma 'fertilidad de tierra' (potencial de ventas) y que requiera un 'esfuerzo de arado' similar (carga de trabajo). Entender esto es la diferencia entre un equipo de ventas equilibrado y motivado, y uno plagado de rotación e injusticias.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>En el día a día, un Director de Operaciones o VP de Ventas utiliza la optimización territorial para resolver crisis de rotación (Churn) en el equipo comercial. Si los datos muestran que los vendedores estrella están abandonando la empresa, a menudo el diagnóstico revela territorios desequilibrados donde las cuotas son inalcanzables debido a una mala asignación. Al aplicar una redistribución territorial basada en datos de CRM, el directivo puede equilibrar las carteras de clientes (Book of Business). Además, en procesos de Fusiones y Adquisiciones (M&amp;A), el rediseño territorial es la primera herramienta táctica que usa la dirección para integrar la fuerza de ventas adquirida, evitando que dos representantes de ventas de la entidad fusionada llamen al mismo cliente corporativo el mismo día, protegiendo así la imagen de marca y maximizando el cross-selling.</p></div>
+        </article>
+        
+        <article class="subtema">
+            <h2>Metodologías de Asignación de Cuotas de Ventas (Quota Setting)</h2>
+
+            <h3>Historia</h3>
+            <div><p>Históricamente, la asignación de cuotas era un ejercicio puramente financiero y descendente (Top-Down). En la década de 1980, el departamento de finanzas determinaba los objetivos de ingresos globales y los dividía de manera equitativa entre los directores regionales aplicando la regla tácita de 'lo facturado el año pasado más un 10%'. Este enfoque demostró ser altamente ineficiente y desmotivador, ya que ignoraba la saturación del mercado y el ciclo de vida del producto. Con la profesionalización de la disciplina de Sales Operations a principios de los 2000, emergieron metodologías ascendentes (Bottom-Up) e híbridas. Hoy, la cuota ya no es un número arbitrario, sino un modelo predictivo que integra velocidad del pipeline, análisis de penetración de mercado (white space) y factores macroeconómicos, transformando la cuota en una herramienta estratégica de dirección.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>La asignación de cuotas requiere la convergencia de metodologías Top-Down (necesidades corporativas de ingresos) y Bottom-Up (realidad empírica del terreno). Un modelo avanzado de asignación desglosa la cuota en componentes ejecutables basándose en el análisis de 'White Space' (oportunidades no explotadas en clientes actuales) y 'Greenfield' (nuevos clientes). Se debe calcular la 'Tasa de Penetración Histórica' y el 'Win Rate' (tasa de cierre) de cada representante o territorio.</p>
+<p>Ejemplo técnico: Un Director General establece un objetivo de 10 millones de euros para una región (Top-Down). Para asignar la cuota al Vendedor A, no se le da simplemente una fracción aritmética. Se evalúa su territorio y se determina mediante un modelo Bottom-Up que tiene: 2 millones en contratos recurrentes (Renovaciones) con un 90% de probabilidad matemática, 1 millón en pipeline avanzado (Upsell) con un 30% de cierre histórico, y un mercado potencial no abordado que, según métricas de marketing (MQLs), debería generar 500k. La cuota asignada al Vendedor A se fijará en 2.6 millones de euros. Si la suma de las cuotas Bottom-Up de todos los vendedores no alcanza los 10 millones exigidos por la dirección corporativa, existe un 'Quota Gap'. Este gap debe cerrarse no inflando artificialmente las cuotas individuales (lo que destruiría la moral), sino contratando más personal, invirtiendo agresivamente en marketing para generar más demanda, o ajustando la expectativa financiera.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="655pt" data-height="277pt"
+ viewBox="0.00 0.00 654.50 277.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 273)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-273 650.5,-273 650.5,4 -4,4"/>
+<!-- TopDown -->
+<g id="node1" class="node">
+<title>TopDown</title>
+<polygon fill="#f9f9f9" stroke="black" points="333.5,-269 52.5,-269 52.5,-233 333.5,-233 333.5,-269"/>
+<text text-anchor="middle" x="193" y="-247.3" font-family="Helvetica,sans-Serif" font-size="14.00">Objetivo Financiero Corporativo (Top&#45;Down)</text>
+</g>
+<!-- Comparar -->
+<g id="node3" class="node">
+<title>Comparar</title>
+<polygon fill="#f9f9f9" stroke="black" points="414.5,-196 277.5,-196 277.5,-160 414.5,-160 414.5,-196"/>
+<text text-anchor="middle" x="346" y="-174.3" font-family="Helvetica,sans-Serif" font-size="14.00">Calcular Quota Gap</text>
+</g>
+<!-- TopDown&#45;&gt;Comparar -->
+<g id="edge1" class="edge">
+<title>TopDown&#45;&gt;Comparar</title>
+<path fill="none" stroke="black" d="M229.65,-232.99C250.69,-223.23 277.31,-210.88 299.78,-200.45"/>
+<polygon fill="black" stroke="black" points="301.52,-203.5 309.12,-196.11 298.58,-197.15 301.52,-203.5"/>
+</g>
+<!-- BottomUp -->
+<g id="node2" class="node">
+<title>BottomUp</title>
+<polygon fill="#f9f9f9" stroke="black" points="646.5,-269 351.5,-269 351.5,-233 646.5,-233 646.5,-269"/>
+<text text-anchor="middle" x="499" y="-247.3" font-family="Helvetica,sans-Serif" font-size="14.00">Análisis de Capacidad y Territorio (Bottom&#45;Up)</text>
+</g>
+<!-- BottomUp&#45;&gt;Comparar -->
+<g id="edge2" class="edge">
+<title>BottomUp&#45;&gt;Comparar</title>
+<path fill="none" stroke="black" d="M462.35,-232.99C441.31,-223.23 414.69,-210.88 392.22,-200.45"/>
+<polygon fill="black" stroke="black" points="393.42,-197.15 382.88,-196.11 390.48,-203.5 393.42,-197.15"/>
+</g>
+<!-- BrechaAceptable -->
+<g id="node4" class="node">
+<title>BrechaAceptable</title>
+<polygon fill="#fce4d6" stroke="black" points="271,-123 156.21,-105 271,-87 385.79,-105 271,-123"/>
+<text text-anchor="middle" x="271" y="-101.3" font-family="Helvetica,sans-Serif" font-size="14.00">¿Gap manejable?</text>
+</g>
+<!-- Comparar&#45;&gt;BrechaAceptable -->
+<g id="edge3" class="edge">
+<title>Comparar&#45;&gt;BrechaAceptable</title>
+<path fill="none" stroke="black" d="M327.84,-159.81C317.66,-150.17 304.85,-138.04 293.97,-127.75"/>
+<polygon fill="black" stroke="black" points="296.12,-124.96 286.45,-120.63 291.31,-130.05 296.12,-124.96"/>
+</g>
+<!-- AjustarExpectativas -->
+<g id="node5" class="node">
+<title>AjustarExpectativas</title>
+<polygon fill="#f9f9f9" stroke="black" points="576,-36 268,-36 268,0 576,0 576,-36"/>
+<text text-anchor="middle" x="422" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Intervención: Más Headcount / Ajuste Financiero</text>
+</g>
+<!-- BrechaAceptable&#45;&gt;AjustarExpectativas -->
+<g id="edge4" class="edge">
+<title>BrechaAceptable&#45;&gt;AjustarExpectativas</title>
+<path fill="none" stroke="black" d="M294.93,-90.53C318.46,-77.28 354.8,-56.83 382.6,-41.18"/>
+<polygon fill="black" stroke="black" points="384.68,-44.03 391.67,-36.07 381.24,-37.93 384.68,-44.03"/>
+<text text-anchor="middle" x="364.5" y="-57.8" font-family="Times,serif" font-size="14.00">No</text>
+</g>
+<!-- Rollout -->
+<g id="node6" class="node">
+<title>Rollout</title>
+<polygon fill="#f9f9f9" stroke="black" points="250,-36 0,-36 0,0 250,0 250,-36"/>
+<text text-anchor="middle" x="125" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Despliegue y Comunicación de Cuotas</text>
+</g>
+<!-- BrechaAceptable&#45;&gt;Rollout -->
+<g id="edge6" class="edge">
+<title>BrechaAceptable&#45;&gt;Rollout</title>
+<path fill="none" stroke="black" d="M247.87,-90.53C225.11,-77.28 189.97,-56.83 163.09,-41.18"/>
+<polygon fill="black" stroke="black" points="164.73,-38.08 154.32,-36.07 161.2,-44.13 164.73,-38.08"/>
+<text text-anchor="middle" x="213" y="-57.8" font-family="Times,serif" font-size="14.00">Sí</text>
+</g>
+<!-- AjustarExpectativas&#45;&gt;Comparar -->
+<g id="edge5" class="edge">
+<title>AjustarExpectativas&#45;&gt;Comparar</title>
+<path fill="none" stroke="black" d="M420.11,-36.13C417.2,-57.53 410.25,-94.77 395,-123 389.23,-133.68 380.9,-143.94 372.75,-152.59"/>
+<polygon fill="black" stroke="black" points="370.22,-150.17 365.7,-159.75 375.21,-155.08 370.22,-150.17"/>
+<text text-anchor="middle" x="439" y="-101.3" font-family="Times,serif" font-size="14.00">Recalcular</text>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Asignar una cuota de ventas es exactamente igual que establecer el ritmo (pace) para un corredor en una maratón. Si el entrenador corporativo le dice al corredor: 'Quiero que termines en menos de dos horas', pero no revisa su historial médico, ni sus tiempos anteriores, ni evalúa si el terreno de la carrera es cuesta arriba o cuesta abajo, el corredor fracasará estrepitosamente. O peor aún, se lesionará intentando lograr lo imposible y abandonará el equipo.</p>
+<p>La cuota debe situarse en esa zona psicológica y matemática de 'dificultad alcanzable'. Debe obligar al vendedor a estirarse, a dar su máximo esfuerzo, pero debe sustentarse en la realidad del terreno que pisa. Un vendedor con un buen historial (buen corredor) en un mercado emergente (cuesta abajo) puede soportar una cuota más alta que un novato en un mercado saturado (cuesta arriba). La buena gestión de cuotas conecta el deseo corporativo con la capacidad humana.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>Un Director de Ventas de alto nivel interactúa con la asignación de cuotas como un mecanismo de estabilización ante disrupciones del mercado. Por ejemplo, durante problemas en la cadena de suministro o caídas macroeconómicas bruscas (como la pandemia), el líder debe ajustar temporalmente las cuotas hacia modelos basados en actividades (número de reuniones estratégicas, retención de clientes) en lugar de ingresos netos, para evitar un colapso en la compensación de su equipo que derivaría en una fuga masiva de talento hacia la competencia. De igual forma, cuando la empresa lanza una nueva línea de negocio con alto margen pero difícil de vender, el directivo establecerá sub-cuotas (Carve-outs) específicas para forzar la adopción del nuevo producto, asegurando que los vendedores no se limiten a cumplir su número global vendiendo exclusivamente los productos tradicionales de bajo margen.</p></div>
+        </article>
+        
+        <article class="subtema">
+            <h2>Sistemas de Compensación Variable y Alineación de Objetivos (Compensation Systems)</h2>
+
+            <h3>Historia</h3>
+            <div><p>En los albores de las ventas comerciales (siglo XIX e inicios del XX), el estándar era el pago de 'solo comisión' (straight commission). El riesgo recaía en su totalidad sobre el vendedor comercial o el 'viajante'. Con el surgimiento de corporaciones estructuradas a mediados del siglo XX, las empresas introdujeron el salario base para otorgar seguridad, naciendo el concepto de On-Target Earnings (OTE). En las últimas décadas, impulsados por la teoría de la economía conductual, los planes de compensación han mutado de simples porcentajes lineales a arquitecturas de incentivos altamente complejas, utilizando aceleradores, desaceleradores y bonos escalonados. El objetivo moderno de la compensación ya no es solo 'pagar por vender', sino modificar comportamientos estratégicos y alinear el enriquecimiento del empleado con la rentabilidad corporativa.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>El diseño técnico de un sistema de compensación se fundamenta en la estructura del OTE (On-Target Earnings), que es la suma del salario base y la comisión variable esperada al 100% de la cuota (Target). El ratio típico (Pay Mix) en software e industria pesada suele ser 50/50 o 60/40 (Base/Variable). La mecánica del plan se regula mediante componentes matemáticos críticos: 'Cliffs' (umbrales mínimos), 'Accelerators' (multiplicadores por sobrecumplimiento) y 'Caps' (topes máximos).</p>
+<p>Ejemplo práctico: Un Account Executive tiene un OTE de 100.000€ (50k base / 50k variable) asociado a una cuota de 1 millón de euros. El diseño incorpora un 'Cliff' del 50%. Esto significa que si el vendedor cierra menos de 500.000€, cobra 0€ de variable (protegiendo el ROI de la empresa ante el bajo rendimiento). Si cierra entre el 50% y el 100%, cobra la comisión estándar (ej. 5% lineal). Sin embargo, el diseño maestro de ventas radica en los aceleradores: por cada euro vendido por encima del 100% de la cuota (es decir, por encima de 1 millón), la comisión sube al 10% (un acelerador de 2x). Este diseño asimétrico desincentiva severamente la mediocridad al inicio, y premia de forma exponencial el talento excepcional, asegurando que los 'Top Performers' no levanten el pie del acelerador a final de año cuando ya han cumplido el objetivo, maximizando los ingresos de la corporación.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="627pt" data-height="385pt"
+ viewBox="0.00 0.00 627.27 385.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 381)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-381 623.27,-381 623.27,4 -4,4"/>
+<!-- EvalVentas -->
+<g id="node1" class="node">
+<title>EvalVentas</title>
+<polygon fill="#f9f9f9" stroke="black" points="273.77,-377 49.77,-377 49.77,-341 273.77,-341 273.77,-377"/>
+<text text-anchor="middle" x="161.77" y="-355.3" font-family="Helvetica,sans-Serif" font-size="14.00">Evaluación de Ventas Acumuladas</text>
+</g>
+<!-- CheckCliff -->
+<g id="node2" class="node">
+<title>CheckCliff</title>
+<polygon fill="#fff2cc" stroke="black" points="161.77,-304 0.23,-286 161.77,-268 323.32,-286 161.77,-304"/>
+<text text-anchor="middle" x="161.77" y="-282.3" font-family="Helvetica,sans-Serif" font-size="14.00">¿Supera el Cliff (ej. 50%)?</text>
+</g>
+<!-- EvalVentas&#45;&gt;CheckCliff -->
+<g id="edge1" class="edge">
+<title>EvalVentas&#45;&gt;CheckCliff</title>
+<path fill="none" stroke="black" d="M161.77,-340.81C161.77,-332.79 161.77,-323.05 161.77,-314.07"/>
+<polygon fill="black" stroke="black" points="165.27,-314.03 161.77,-304.03 158.27,-314.03 165.27,-314.03"/>
+</g>
+<!-- PagoBase -->
+<g id="node3" class="node">
+<title>PagoBase</title>
+<polygon fill="#f9f9f9" stroke="black" points="256.77,-163 26.77,-163 26.77,-127 256.77,-127 256.77,-163"/>
+<text text-anchor="middle" x="141.77" y="-141.3" font-family="Helvetica,sans-Serif" font-size="14.00">Comisión = 0% (Solo Salario Base)</text>
+</g>
+<!-- CheckCliff&#45;&gt;PagoBase -->
+<g id="edge2" class="edge">
+<title>CheckCliff&#45;&gt;PagoBase</title>
+<path fill="none" stroke="black" d="M159.36,-268.23C155.97,-244.67 149.76,-201.49 145.7,-173.27"/>
+<polygon fill="black" stroke="black" points="149.14,-172.66 144.26,-163.26 142.22,-173.66 149.14,-172.66"/>
+<text text-anchor="middle" x="165.27" y="-238.8" font-family="Times,serif" font-size="14.00">No</text>
+</g>
+<!-- CheckQuota -->
+<g id="node4" class="node">
+<title>CheckQuota</title>
+<polygon fill="#fff2cc" stroke="black" points="333.77,-217 170.05,-199 333.77,-181 497.49,-199 333.77,-217"/>
+<text text-anchor="middle" x="333.77" y="-195.3" font-family="Helvetica,sans-Serif" font-size="14.00">¿Supera la Cuota (100%)?</text>
+</g>
+<!-- CheckCliff&#45;&gt;CheckQuota -->
+<g id="edge3" class="edge">
+<title>CheckCliff&#45;&gt;CheckQuota</title>
+<path fill="none" stroke="black" d="M190.17,-270.96C219.27,-256.59 264.63,-234.17 296.58,-218.38"/>
+<polygon fill="black" stroke="black" points="298.2,-221.48 305.61,-213.92 295.1,-215.21 298.2,-221.48"/>
+<text text-anchor="middle" x="263.77" y="-238.8" font-family="Times,serif" font-size="14.00">Sí</text>
+</g>
+<!-- CalcTotal -->
+<g id="node7" class="node">
+<title>CalcTotal</title>
+<polygon fill="#f9f9f9" stroke="black" points="372.27,-36 165.27,-36 165.27,0 372.27,0 372.27,-36"/>
+<text text-anchor="middle" x="268.77" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Cálculo Total de Compensación</text>
+</g>
+<!-- PagoBase&#45;&gt;CalcTotal -->
+<g id="edge6" class="edge">
+<title>PagoBase&#45;&gt;CalcTotal</title>
+<path fill="none" stroke="black" d="M142.47,-126.72C143.94,-111.12 148.27,-88.33 160.77,-73 172.13,-59.08 187.98,-48.43 204.05,-40.42"/>
+<polygon fill="black" stroke="black" points="205.92,-43.41 213.5,-36 202.96,-37.07 205.92,-43.41"/>
+</g>
+<!-- ComisionEstandar -->
+<g id="node5" class="node">
+<title>ComisionEstandar</title>
+<polygon fill="#f9f9f9" stroke="black" points="367.77,-109 169.77,-109 169.77,-73 367.77,-73 367.77,-109"/>
+<text text-anchor="middle" x="268.77" y="-87.3" font-family="Helvetica,sans-Serif" font-size="14.00">Pago: Comisión Base (ej. 5%)</text>
+</g>
+<!-- CheckQuota&#45;&gt;ComisionEstandar -->
+<g id="edge4" class="edge">
+<title>CheckQuota&#45;&gt;ComisionEstandar</title>
+<path fill="none" stroke="black" d="M323.9,-181.9C313.49,-164.93 296.93,-137.92 284.68,-117.94"/>
+<polygon fill="black" stroke="black" points="287.6,-116 279.39,-109.31 281.63,-119.66 287.6,-116"/>
+<text text-anchor="middle" x="353.27" y="-141.3" font-family="Times,serif" font-size="14.00">No (50%&#45;99%)</text>
+</g>
+<!-- Acelerador -->
+<g id="node6" class="node">
+<title>Acelerador</title>
+<polygon fill="#f9f9f9" stroke="black" points="619.27,-109 386.27,-109 386.27,-73 619.27,-73 619.27,-109"/>
+<text text-anchor="middle" x="502.77" y="-87.3" font-family="Helvetica,sans-Serif" font-size="14.00">Pago: Acelerador Activado (ej. 10%)</text>
+</g>
+<!-- CheckQuota&#45;&gt;Acelerador -->
+<g id="edge5" class="edge">
+<title>CheckQuota&#45;&gt;Acelerador</title>
+<path fill="none" stroke="black" d="M361.79,-184.06C373.68,-177.91 387.58,-170.4 399.77,-163 424.46,-148.01 451.3,-129.43 471.39,-115.04"/>
+<polygon fill="black" stroke="black" points="473.49,-117.84 479.56,-109.15 469.4,-112.16 473.49,-117.84"/>
+<text text-anchor="middle" x="486.27" y="-141.3" font-family="Times,serif" font-size="14.00">Sí (100%+)</text>
+</g>
+<!-- ComisionEstandar&#45;&gt;CalcTotal -->
+<g id="edge7" class="edge">
+<title>ComisionEstandar&#45;&gt;CalcTotal</title>
+<path fill="none" stroke="black" d="M268.77,-72.81C268.77,-64.79 268.77,-55.05 268.77,-46.07"/>
+<polygon fill="black" stroke="black" points="272.27,-46.03 268.77,-36.03 265.27,-46.03 272.27,-46.03"/>
+</g>
+<!-- Acelerador&#45;&gt;CalcTotal -->
+<g id="edge8" class="edge">
+<title>Acelerador&#45;&gt;CalcTotal</title>
+<path fill="none" stroke="black" d="M446.72,-72.99C413.11,-62.79 370.18,-49.77 334.91,-39.07"/>
+<polygon fill="black" stroke="black" points="335.76,-35.67 325.17,-36.11 333.73,-42.37 335.76,-35.67"/>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Diseñar un plan de compensación es como estructurar el sistema de recompensas de un videojuego adictivo. Si el juego te da todos los tesoros en el nivel 1 sin esfuerzo, te aburres y dejas de jugar. Por el contrario, si el jefe final es imposible de derrotar y, aun lográndolo, la recompensa es mediocre, te frustras y abandonas el juego. Un plan de compensación excelente maneja la dopamina del vendedor.</p>
+<p>El salario base es la 'supervivencia básica', asegura que el jugador pueda pagar sus facturas sin ansiedad. El 'Cliff' (umbral mínimo) es la advertencia: no hay recompensas si no pasas el nivel básico. La comisión estándar te motiva a llegar al 100%. Pero la verdadera magia son los 'Aceleradores'. Son los niveles secretos donde el botín se multiplica por dos. Ese multiplicador hace que un vendedor excelente no se relaje en noviembre, sino que luche agresivamente en diciembre para exprimir cada gota del acelerador, alineando su deseo de riqueza personal con el crecimiento de la compañía.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>Un COO utiliza el plan de compensación como su volante de dirección estratégico más efectivo. Si la empresa necesita con urgencia aumentar el flujo de caja (Cash Flow), el directivo ajustará el plan para pagar comisiones en el momento del cobro de la factura (Cash-collected), no en la firma del contrato (Bookings), forzando a los vendedores a traer clientes que paguen rápido y por adelantado. Alternativamente, si el objetivo corporativo anual cambia de 'Adquisición pura' a 'Rentabilidad', el plan se ajustará para que las comisiones se calculen sobre el Margen Bruto y no sobre el Ingreso Bruto (Top-line revenue). De esta manera, se castiga implícitamente la práctica destructiva de ofrecer grandes descuentos solo para cerrar el trato, alineando milimétricamente la conducta del vendedor en el campo con la visión del comité de dirección.</p></div>
+        </article>
+        </body></html>

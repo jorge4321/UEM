@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 - Diseño y Dimensionamiento del Equipo de Ventas.</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; color: #333; margin: 0; padding: 20px; line-height: 1.6; position: relative; }
+        header { background: #2c3e50; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align:center; }
+        h1 { margin: 0; font-size: 1.5rem; }
+
+        /* Estilo del botón Atrás */
+        .btn-atras {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #7f8c8d;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-atras:hover { background: #95a5a6; }
+
+        .subtema {
+            background: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 { color: #2980b9; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        h3 { color: #7f8c8d; font-size: 0.9em; text-transform: uppercase; margin-top: 30px; letter-spacing: 1px; border-left: 3px solid #d4af37; padding-left: 10px; }
+
+        .diagrama-box {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+
+        p { margin-bottom: 1rem; }
+        strong { color: #2c3e50; font-weight: 600; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <button onclick="window.history.back()" class="btn-atras">Atrás</button>
+    <header><h1>6 - Diseño y Dimensionamiento del Equipo de Ventas.</h1></header>
+    <main>
+
+        <article class="subtema">
+            <h2>Diseño Estructural de la Fuerza de Ventas</h2>
+
+            <h3>Historia</h3>
+            <div><p>La estructuración de equipos de ventas ha evolucionado drásticamente desde la Revolución Industrial. Originalmente, el modelo predominante era puramente geográfico: el 'viajante de comercio' cubría todo tipo de productos y clientes en una zona delimitada por las rutas de transporte. Con la diversificación industrial de mediados del siglo XX y el auge de las corporaciones multinacionales, este enfoque demostró ser ineficiente para portafolios complejos. En la década de 1970, surgieron estructuras matriciales y la especialización por producto. A finales del siglo XX, la llegada del 'Key Account Management' (KAM) y la venta consultiva impulsó la organización centrada en el cliente o mercado. Hoy en día, la digitalización ha añadido una nueva capa funcional, separando las ventas internas (Inside Sales/SDR) de las ventas de campo (Field Sales), respondiendo a la necesidad de máxima eficiencia en cada etapa del embudo de conversión.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>El diseño estructural determina cómo se divide, agrupa y coordina el esfuerzo de ventas. Las cuatro estructuras clásicas son: 1) Geográfica: Cada vendedor es responsable de todos los productos y clientes en un territorio. Es económica y evita solapamientos, pero carece de especialización. 2) Por Producto: Los vendedores se especializan en líneas de productos específicas. Ideal para portafolios técnicos y heterogéneos. 3) Por Mercado/Cliente: Agrupación según la industria o tamaño del cliente (Ej. Pymes vs. Grandes Cuentas). Permite un profundo conocimiento del negocio del comprador. 4) Funcional: División por la fase del proceso de ventas (Ej. Prospectores o SDRs, Cerradores o Account Executives, y Gestores de Éxito o Customer Success). </p>
+<p>Ejemplo: Una empresa de software médico B2B puede combinar estas estructuras. A nivel macro, utiliza una estructura funcional: un equipo de SDRs cualifica leads telefónicamente. A nivel micro, los Account Executives se estructuran por mercado: el Equipo A atiende a clínicas privadas pequeñas, mientras el Equipo B (KAMs) atiende a redes hospitalarias gubernamentales. Si los productos son muy técnicos (ej. software de radiología vs. software de facturación), la empresa podría requerir además una estructura por producto, donde el vendedor especializado en radiología acompaña al KAM en la presentación técnica al hospital.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="933pt" data-height="498pt"
+ viewBox="0.00 0.00 933.00 498.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 494)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-494 929,-494 929,4 -4,4"/>
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<polygon fill="#f9f9f9" stroke="black" points="281,-490 81,-490 81,-454 281,-454 281,-490"/>
+<text text-anchor="middle" x="181" y="-468.3" font-family="Helvetica,sans-Serif" font-size="14.00">Análisis del Entorno de Ventas</text>
+</g>
+<!-- cond_prod -->
+<g id="node2" class="node">
+<title>cond_prod</title>
+<polygon fill="#f9f9f9" stroke="black" points="181,-417 0,-379 181,-341 362,-379 181,-417"/>
+<text text-anchor="middle" x="181" y="-382.8" font-family="Helvetica,sans-Serif" font-size="14.00">¿Productos muy complejos</text>
+<text text-anchor="middle" x="181" y="-367.8" font-family="Helvetica,sans-Serif" font-size="14.00">y diversos?</text>
+</g>
+<!-- start&#45;&gt;cond_prod -->
+<g id="edge1" class="edge">
+<title>start&#45;&gt;cond_prod</title>
+<path fill="none" stroke="black" d="M181,-453.88C181,-446.25 181,-436.83 181,-427.31"/>
+<polygon fill="black" stroke="black" points="184.5,-427.02 181,-417.02 177.5,-427.02 184.5,-427.02"/>
+</g>
+<!-- est_prod -->
+<g id="node3" class="node">
+<title>est_prod</title>
+<polygon fill="#f9f9f9" stroke="black" points="241.5,-270 82.5,-270 82.5,-234 241.5,-234 241.5,-270"/>
+<text text-anchor="middle" x="162" y="-248.3" font-family="Helvetica,sans-Serif" font-size="14.00">Estructura por Producto</text>
+</g>
+<!-- cond_prod&#45;&gt;est_prod -->
+<g id="edge2" class="edge">
+<title>cond_prod&#45;&gt;est_prod</title>
+<path fill="none" stroke="black" d="M175.5,-341.84C172.5,-322.07 168.84,-298 166.09,-279.9"/>
+<polygon fill="black" stroke="black" points="169.55,-279.37 164.59,-270.01 162.63,-280.43 169.55,-279.37"/>
+<text text-anchor="middle" x="181" y="-311.8" font-family="Times,serif" font-size="14.00"> Sí</text>
+</g>
+<!-- cond_mercado -->
+<g id="node4" class="node">
+<title>cond_mercado</title>
+<polygon fill="#f9f9f9" stroke="black" points="439,-290 260,-252 439,-214 618,-252 439,-290"/>
+<text text-anchor="middle" x="439" y="-255.8" font-family="Helvetica,sans-Serif" font-size="14.00">¿Clientes con necesidades</text>
+<text text-anchor="middle" x="439" y="-240.8" font-family="Helvetica,sans-Serif" font-size="14.00">muy diferenciadas?</text>
+</g>
+<!-- cond_prod&#45;&gt;cond_mercado -->
+<g id="edge3" class="edge">
+<title>cond_prod&#45;&gt;cond_mercado</title>
+<path fill="none" stroke="black" d="M234.46,-352.1C275.8,-332.07 333.12,-304.3 376.56,-283.25"/>
+<polygon fill="black" stroke="black" points="378.14,-286.38 385.61,-278.87 375.09,-280.08 378.14,-286.38"/>
+<text text-anchor="middle" x="336.5" y="-311.8" font-family="Times,serif" font-size="14.00"> No</text>
+</g>
+<!-- est_mercado -->
+<g id="node5" class="node">
+<title>est_mercado</title>
+<polygon fill="#f9f9f9" stroke="black" points="441,-143 241,-143 241,-107 441,-107 441,-143"/>
+<text text-anchor="middle" x="341" y="-121.3" font-family="Helvetica,sans-Serif" font-size="14.00">Estructura por Mercado / KAM</text>
+</g>
+<!-- cond_mercado&#45;&gt;est_mercado -->
+<g id="edge4" class="edge">
+<title>cond_mercado&#45;&gt;est_mercado</title>
+<path fill="none" stroke="black" d="M414.02,-219.13C397.44,-197.99 376,-170.64 360.65,-151.06"/>
+<polygon fill="black" stroke="black" points="363.4,-148.89 354.47,-143.18 357.89,-153.21 363.4,-148.89"/>
+<text text-anchor="middle" x="404" y="-184.8" font-family="Times,serif" font-size="14.00"> Sí</text>
+</g>
+<!-- cond_func -->
+<g id="node6" class="node">
+<title>cond_func</title>
+<polygon fill="#f9f9f9" stroke="black" points="692,-163 459,-125 692,-87 925,-125 692,-163"/>
+<text text-anchor="middle" x="692" y="-128.8" font-family="Helvetica,sans-Serif" font-size="14.00">¿Ciclo de venta largo</text>
+<text text-anchor="middle" x="692" y="-113.8" font-family="Helvetica,sans-Serif" font-size="14.00">que requiere prospección intensiva?</text>
+</g>
+<!-- cond_mercado&#45;&gt;cond_func -->
+<g id="edge5" class="edge">
+<title>cond_mercado&#45;&gt;cond_func</title>
+<path fill="none" stroke="black" d="M491.42,-225.1C530.66,-205.71 584.58,-179.07 626.64,-158.29"/>
+<polygon fill="black" stroke="black" points="628.28,-161.39 635.69,-153.82 625.18,-155.11 628.28,-161.39"/>
+<text text-anchor="middle" x="591.5" y="-184.8" font-family="Times,serif" font-size="14.00"> No</text>
+</g>
+<!-- est_func -->
+<g id="node7" class="node">
+<title>est_func</title>
+<polygon fill="#f9f9f9" stroke="black" points="680,-36 470,-36 470,0 680,0 680,-36"/>
+<text text-anchor="middle" x="575" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Estructura Funcional (SDR / AE)</text>
+</g>
+<!-- cond_func&#45;&gt;est_func -->
+<g id="edge6" class="edge">
+<title>cond_func&#45;&gt;est_func</title>
+<path fill="none" stroke="black" d="M656.9,-92.5C639.2,-76.61 618.07,-57.66 601.71,-42.97"/>
+<polygon fill="black" stroke="black" points="603.88,-40.22 594.1,-36.14 599.21,-45.43 603.88,-40.22"/>
+<text text-anchor="middle" x="638" y="-57.8" font-family="Times,serif" font-size="14.00"> Sí</text>
+</g>
+<!-- est_geo -->
+<g id="node8" class="node">
+<title>est_geo</title>
+<polygon fill="#f9f9f9" stroke="black" points="917.5,-36 698.5,-36 698.5,0 917.5,0 917.5,-36"/>
+<text text-anchor="middle" x="808" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Estructura Geográfica (Eficiencia)</text>
+</g>
+<!-- cond_func&#45;&gt;est_geo -->
+<g id="edge7" class="edge">
+<title>cond_func&#45;&gt;est_geo</title>
+<path fill="none" stroke="black" d="M726.8,-92.5C744.35,-76.61 765.29,-57.66 781.51,-42.97"/>
+<polygon fill="black" stroke="black" points="784,-45.45 789.06,-36.14 779.3,-40.26 784,-45.45"/>
+<text text-anchor="middle" x="778.5" y="-57.8" font-family="Times,serif" font-size="14.00"> No</text>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Piensa en el diseño de la fuerza de ventas como la construcción de una casa. Un arquitecto no añade habitaciones al azar; diseña los espacios según cómo vive la familia, si reciben muchos invitados o si trabajan desde casa. De la misma forma, un líder de ventas no asigna vendedores aleatoriamente. Si tus clientes 'compran' por cercanía, construyes una estructura geográfica. Si compran porque necesitan a un experto hiper-técnico, construyes habitaciones (estructuras) separadas por tipo de producto. Si tus clientes son reyes que exigen un trato exclusivo, diseñas una estructura VIP (Grandes Cuentas). La intuición fundamental es que la estructura de ventas nunca debe basarse en la comodidad interna de la empresa, sino que debe ser un espejo exacto de la forma en la que el mercado prefiere comprar. Si el espejo está distorsionado, la fricción destruirá las ventas.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>En el entorno corporativo, un Director de Operaciones (Sales Ops) se enfrenta habitualmente al rediseño estructural tras fusiones o adquisiciones. Supongamos que la empresa adquiere a un competidor. El Director de Operaciones analiza el CRM y detecta que mantener las estructuras geográficas originales genera solapamientos: dos vendedores de la misma compañía matriz están visitando al mismo cliente corporativo para venderle productos diferentes, confundiendo al comprador. La aplicación práctica consiste en liderar una transición hacia una estructura por Mercado (KAM). El Director reasigna las cuentas para que un único Account Executive gestione la relación global con el cliente, apoyado por especialistas de producto. Esto implica reconfigurar flujos en Salesforce, redefinir el esquema de comisiones y modificar los KPIs operativos, pasando de medir 'visitas por zona' a evaluar 'penetración de cartera cruzada' (cross-selling) en clientes clave.</p></div>
+        </article>
+        
+        <article class="subtema">
+            <h2>Método de Carga de Trabajo (Workload Method) para Dimensionamiento</h2>
+
+            <h3>Historia</h3>
+            <div><p>El Método de Carga de Trabajo tiene sus raíces en el Taylorismo y la administración científica de principios del siglo XX, que buscaban optimizar la eficiencia en fábricas midiendo tiempos y movimientos. En la década de 1950, Walter Semlow fue pionero en adaptar estos principios de ingeniería industrial al trabajo de 'cuello blanco' y, específicamente, a las ventas. Antes de su adopción, el tamaño del equipo de ventas se definía por intuición o como un simple porcentaje de los ingresos esperados. Semlow introdujo la idea revolucionaria de que las ventas son matemáticas puras: el número de vendedores debe ser igual al trabajo total requerido por el mercado dividido por el trabajo que puede realizar un solo individuo. Este enfoque sentó las bases para el software moderno de planificación de recursos y CRM analítico.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>El Método de Carga de Trabajo (o Método de Construcción) es una técnica cuantitativa para calcular el tamaño óptimo de la fuerza de ventas. Se basa en igualar la carga de trabajo requerida por el mercado con la capacidad de los vendedores. El proceso técnico consta de cinco pasos: 1) Clasificar a los clientes (actuales y potenciales) en categorías (Ej. A, B, C) según su volumen de compra o potencial. 2) Determinar la frecuencia y duración óptima de las visitas/contactos para cada categoría. 3) Calcular la carga de trabajo total (multiplicando clientes por frecuencia por duración). 4) Calcular el tiempo de venta real disponible por vendedor (descontando tiempos administrativos, viajes, vacaciones). 5) Dividir la carga total entre el tiempo disponible por vendedor. </p>
+<p>Ejemplo: Una empresa tiene 200 clientes tipo A (requieren 20 visitas/año de 2 horas) y 1000 clientes tipo B (requieren 10 visitas/año de 1 hora). Carga total: (200 * 20 * 2) + (1000 * 10 * 1) = 8,000 + 10,000 = 18,000 horas anuales requeridas. Si un vendedor trabaja 2,000 horas al año, pero solo el 50% es tiempo de venta directo (1,000 horas útiles). Dimensionamiento: 18,000 / 1,000 = 18 vendedores exactos requeridos para cubrir el mercado eficientemente.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="466pt" data-height="538pt"
+ viewBox="0.00 0.00 466.00 538.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 534)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-534 462,-534 462,4 -4,4"/>
+<!-- step1 -->
+<g id="node1" class="node">
+<title>step1</title>
+<polygon fill="#f9f9f9" stroke="black" points="378,-530 183,-530 183,-494 378,-494 378,-530"/>
+<text text-anchor="middle" x="280.5" y="-508.3" font-family="Helvetica,sans-Serif" font-size="14.00">1. Clasificar Clientes (A, B, C)</text>
+</g>
+<!-- step2 -->
+<g id="node2" class="node">
+<title>step2</title>
+<polygon fill="#f9f9f9" stroke="black" points="428.5,-457 132.5,-457 132.5,-421 428.5,-421 428.5,-457"/>
+<text text-anchor="middle" x="280.5" y="-435.3" font-family="Helvetica,sans-Serif" font-size="14.00">2. Definir Frecuencia y Duración por Categoría</text>
+</g>
+<!-- step1&#45;&gt;step2 -->
+<g id="edge1" class="edge">
+<title>step1&#45;&gt;step2</title>
+<path fill="none" stroke="black" d="M280.5,-493.81C280.5,-485.79 280.5,-476.05 280.5,-467.07"/>
+<polygon fill="black" stroke="black" points="284,-467.03 280.5,-457.03 277,-467.03 284,-467.03"/>
+</g>
+<!-- step3 -->
+<g id="node3" class="node">
+<title>step3</title>
+<polygon fill="#f9f9f9" stroke="black" points="331,-384 60,-384 60,-348 331,-348 331,-384"/>
+<text text-anchor="middle" x="195.5" y="-362.3" font-family="Helvetica,sans-Serif" font-size="14.00">3. Calcular Carga de Trabajo Total (Horas)</text>
+</g>
+<!-- step2&#45;&gt;step3 -->
+<g id="edge2" class="edge">
+<title>step2&#45;&gt;step3</title>
+<path fill="none" stroke="black" d="M259.92,-420.81C249.07,-411.74 235.58,-400.48 223.75,-390.6"/>
+<polygon fill="black" stroke="black" points="225.81,-387.75 215.89,-384.03 221.32,-393.13 225.81,-387.75"/>
+</g>
+<!-- step4 -->
+<g id="node4" class="node">
+<title>step4</title>
+<polygon fill="#f9f9f9" stroke="black" points="334,-311 35,-311 35,-275 334,-275 334,-311"/>
+<text text-anchor="middle" x="184.5" y="-289.3" font-family="Helvetica,sans-Serif" font-size="14.00">4. Calcular Tiempo de Venta Útil por Comercial</text>
+</g>
+<!-- step3&#45;&gt;step4 -->
+<g id="edge3" class="edge">
+<title>step3&#45;&gt;step4</title>
+<path fill="none" stroke="black" d="M192.84,-347.81C191.59,-339.79 190.08,-330.05 188.69,-321.07"/>
+<polygon fill="black" stroke="black" points="192.13,-320.38 187.14,-311.03 185.21,-321.45 192.13,-320.38"/>
+</g>
+<!-- step5 -->
+<g id="node5" class="node">
+<title>step5</title>
+<polygon fill="#f9f9f9" stroke="black" points="295.5,-238 73.5,-238 73.5,-202 295.5,-202 295.5,-238"/>
+<text text-anchor="middle" x="184.5" y="-216.3" font-family="Helvetica,sans-Serif" font-size="14.00">5. Dividir Carga Total / Tiempo Útil</text>
+</g>
+<!-- step4&#45;&gt;step5 -->
+<g id="edge4" class="edge">
+<title>step4&#45;&gt;step5</title>
+<path fill="none" stroke="black" d="M184.5,-274.81C184.5,-266.79 184.5,-257.05 184.5,-248.07"/>
+<polygon fill="black" stroke="black" points="188,-248.03 184.5,-238.03 181,-248.03 188,-248.03"/>
+</g>
+<!-- cond_budget -->
+<g id="node6" class="node">
+<title>cond_budget</title>
+<polygon fill="#f9f9f9" stroke="black" points="183.5,-165 32.5,-127 183.5,-89 334.5,-127 183.5,-165"/>
+<text text-anchor="middle" x="183.5" y="-130.8" font-family="Helvetica,sans-Serif" font-size="14.00">¿Headcount calculado</text>
+<text text-anchor="middle" x="183.5" y="-115.8" font-family="Helvetica,sans-Serif" font-size="14.00">cabe en presupuesto?</text>
+</g>
+<!-- step5&#45;&gt;cond_budget -->
+<g id="edge5" class="edge">
+<title>step5&#45;&gt;cond_budget</title>
+<path fill="none" stroke="black" d="M184.31,-201.88C184.23,-194.25 184.12,-184.83 184.02,-175.31"/>
+<polygon fill="black" stroke="black" points="187.52,-174.98 183.91,-165.02 180.52,-175.06 187.52,-174.98"/>
+</g>
+<!-- adjust -->
+<g id="node7" class="node">
+<title>adjust</title>
+<polygon fill="#f9f9f9" stroke="black" points="458,-38 267,-38 267,0 458,0 458,-38"/>
+<text text-anchor="middle" x="362.5" y="-22.8" font-family="Helvetica,sans-Serif" font-size="14.00">Ajustar Frecuencia de Visitas</text>
+<text text-anchor="middle" x="362.5" y="-7.8" font-family="Helvetica,sans-Serif" font-size="14.00">o Estrategia de Cuentas</text>
+</g>
+<!-- cond_budget&#45;&gt;adjust -->
+<g id="edge7" class="edge">
+<title>cond_budget&#45;&gt;adjust</title>
+<path fill="none" stroke="black" d="M227.75,-99.8C256.99,-82.48 294.97,-59.99 323.16,-43.3"/>
+<polygon fill="black" stroke="black" points="325.12,-46.2 331.94,-38.1 321.55,-40.18 325.12,-46.2"/>
+<text text-anchor="middle" x="309" y="-59.8" font-family="Times,serif" font-size="14.00"> No</text>
+</g>
+<!-- approve -->
+<g id="node8" class="node">
+<title>approve</title>
+<polygon fill="#f9f9f9" stroke="black" points="249,-37 0,-37 0,-1 249,-1 249,-37"/>
+<text text-anchor="middle" x="124.5" y="-15.3" font-family="Helvetica,sans-Serif" font-size="14.00">Aprobar Dimensionamiento del Equipo</text>
+</g>
+<!-- cond_budget&#45;&gt;approve -->
+<g id="edge6" class="edge">
+<title>cond_budget&#45;&gt;approve</title>
+<path fill="none" stroke="black" d="M165.32,-93.33C156.82,-78.06 146.84,-60.14 138.88,-45.83"/>
+<polygon fill="black" stroke="black" points="141.9,-44.06 133.97,-37.02 135.78,-47.46 141.9,-44.06"/>
+<text text-anchor="middle" x="159.5" y="-59.8" font-family="Times,serif" font-size="14.00"> Sí</text>
+</g>
+<!-- adjust&#45;&gt;step2 -->
+<g id="edge8" class="edge">
+<title>adjust&#45;&gt;step2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M362.5,-38.01C362.5,-59.09 362.5,-95.08 362.5,-126 362.5,-367 362.5,-367 362.5,-367 362.5,-387.88 347.12,-403.99 329.69,-415.54"/>
+<polygon fill="black" stroke="black" points="327.72,-412.64 321.02,-420.85 331.38,-418.61 327.72,-412.64"/>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Imagínate que eres el director de la cocina de un restaurante muy ocupado y necesitas saber cuántos cocineros contratar. No adivinas el número; en su lugar, analizas el menú. Si sabes que en una noche típica se piden 100 paellas y cada paella requiere 30 minutos de atención, necesitas 50 horas de trabajo culinario. Si cada cocinero trabaja 5 horas efectivas por turno, la matemática es clara: necesitas 10 cocineros. El dimensionamiento de ventas mediante carga de trabajo es exactamente igual, pero cambiando 'paellas' por 'clientes' y 'tiempo de cocción' por 'tiempo de visita o reunión'. Entender esto desmitifica la gestión de ventas, transformando lo que parece un arte impredecible en un simple problema de capacidad versus demanda operativa.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>Un Director de Operaciones de Ventas utiliza este método activamente durante el ciclo de planificación presupuestaria anual. Supongamos que la empresa decide lanzar un agresivo plan de expansión para adquirir 500 nuevos clientes el próximo año. El Director de Ventas pide contratar 10 nuevos comerciales. El Director de Operaciones aplica el Método de Carga de Trabajo utilizando datos reales extraídos del CRM: demuestra que implementando una nueva herramienta de firma electrónica y automatizando reportes, el 'tiempo administrativo' de los vendedores actuales se reduce en un 20%, aumentando su capacidad de venta útil. El recálculo arroja que la fuerza de ventas actual, con su nueva capacidad, puede absorber 350 de esos nuevos clientes. Por tanto, apoyado en datos irrefutables, el Director de Operaciones justifica ante el CFO que solo es necesario contratar a 3 nuevos vendedores en lugar de 10, ahorrando cientos de miles de euros.</p></div>
+        </article>
+        
+        <article class="subtema">
+            <h2>Diseño y Alineación de Territorios de Ventas</h2>
+
+            <h3>Historia</h3>
+            <div><p>Históricamente, los territorios de ventas se diseñaban literalmente sobre mapas de papel, utilizando chinchetas de colores para marcar clientes y trazando líneas con rotuladores basándose en fronteras políticas o accidentes geográficos (ríos, montañas). Este enfoque 'a ojo' generaba inmensas desigualdades, donde algunos vendedores nadaban en oportunidades mientras otros fracasaban por falta de mercado. En la década de 1980, con la democratización de la informática, surgieron los Sistemas de Información Geográfica (GIS). Hoy en día, el diseño de territorios ha evolucionado hacia un modelo algorítmico y de inteligencia artificial predictiva. Las organizaciones modernas ya no dividen territorios por 'norte o sur', sino que emplean mapas poligonales dinámicos que equilibran el potencial de ingresos, la densidad de empresas objetivo y los tiempos de desplazamiento en tiempo real.</p></div>
+
+            <h3>Descripción Formal</h3>
+            <div><p>El diseño de territorios es el proceso de asignar clientes y áreas geográficas (o segmentos) a vendedores individuales buscando maximizar la cobertura del mercado y minimizar los costos operativos. Un diseño técnico óptimo debe cumplir tres criterios matemáticos: 1) Igualdad de potencial de ventas (oportunidades equitativas para ganar comisiones), 2) Igualdad de carga de trabajo (tiempo de desplazamiento y gestión equilibrado), y 3) Contigüidad (evitar territorios fragmentados o cruzados). Se suele utilizar el 'Método de Construcción' (Build-up method), que inicia eligiendo una unidad geográfica de control pequeña (ej. Código Postal). </p>
+<p>Ejemplo: Al dividir la ciudad de Madrid entre dos comerciales B2B, no se traza una línea por el centro. Se evalúa cada código postal. El CP 28046 (Paseo de la Castellana) tiene 500 sedes corporativas (alto potencial, baja dispersión), mientras que 10 códigos postales de la periferia industrial suman 500 empresas (alto potencial, alta dispersión). Para equilibrar, al Comercial A se le asigna solo el CP 28046, y al Comercial B se le asignan los 10 CPs de la periferia más una compensación en objetivos por el mayor tiempo de desplazamiento, garantizando equidad estadística en sus probabilidades de éxito.</p></div>
+
+            <div class="diagrama-box">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg style="max-width: 80%; max-height: 350px; height: auto; width: auto;" data-width="606pt" data-height="390pt"
+ viewBox="0.00 0.00 605.50 390.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 386)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-386 601.5,-386 601.5,4 -4,4"/>
+<!-- unit -->
+<g id="node1" class="node">
+<title>unit</title>
+<polygon fill="#f9f9f9" stroke="black" points="404,-382 52,-382 52,-346 404,-346 404,-382"/>
+<text text-anchor="middle" x="228" y="-360.3" font-family="Helvetica,sans-Serif" font-size="14.00">1. Seleccionar Unidad de Control (Ej. Códigos Postales)</text>
+</g>
+<!-- eval -->
+<g id="node2" class="node">
+<title>eval</title>
+<polygon fill="#f9f9f9" stroke="black" points="356.5,-309 99.5,-309 99.5,-273 356.5,-273 356.5,-309"/>
+<text text-anchor="middle" x="228" y="-287.3" font-family="Helvetica,sans-Serif" font-size="14.00">2. Evaluar Potencial y Carga por Unidad</text>
+</g>
+<!-- unit&#45;&gt;eval -->
+<g id="edge1" class="edge">
+<title>unit&#45;&gt;eval</title>
+<path fill="none" stroke="black" d="M228,-345.81C228,-337.79 228,-328.05 228,-319.07"/>
+<polygon fill="black" stroke="black" points="231.5,-319.03 228,-309.03 224.5,-319.03 231.5,-319.03"/>
+</g>
+<!-- group -->
+<g id="node3" class="node">
+<title>group</title>
+<polygon fill="#f9f9f9" stroke="black" points="371,-236 85,-236 85,-200 371,-200 371,-236"/>
+<text text-anchor="middle" x="228" y="-214.3" font-family="Helvetica,sans-Serif" font-size="14.00">3. Agrupar Unidades en Territorios Tentativos</text>
+</g>
+<!-- eval&#45;&gt;group -->
+<g id="edge2" class="edge">
+<title>eval&#45;&gt;group</title>
+<path fill="none" stroke="black" d="M228,-272.81C228,-264.79 228,-255.05 228,-246.07"/>
+<polygon fill="black" stroke="black" points="231.5,-246.03 228,-236.03 224.5,-246.03 231.5,-246.03"/>
+</g>
+<!-- cond_bal -->
+<g id="node4" class="node">
+<title>cond_bal</title>
+<polygon fill="#f9f9f9" stroke="black" points="228,-163 0,-125 228,-87 456,-125 228,-163"/>
+<text text-anchor="middle" x="228" y="-128.8" font-family="Helvetica,sans-Serif" font-size="14.00">¿Potencial y Carga</text>
+<text text-anchor="middle" x="228" y="-113.8" font-family="Helvetica,sans-Serif" font-size="14.00">están equilibrados entre territorios?</text>
+</g>
+<!-- group&#45;&gt;cond_bal -->
+<g id="edge3" class="edge">
+<title>group&#45;&gt;cond_bal</title>
+<path fill="none" stroke="black" d="M228,-199.88C228,-192.25 228,-182.83 228,-173.31"/>
+<polygon fill="black" stroke="black" points="231.5,-173.02 228,-163.02 224.5,-173.02 231.5,-173.02"/>
+</g>
+<!-- adjust_terr -->
+<g id="node5" class="node">
+<title>adjust_terr</title>
+<polygon fill="#f9f9f9" stroke="black" points="352.5,-36 31.5,-36 31.5,0 352.5,0 352.5,-36"/>
+<text text-anchor="middle" x="192" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">Reasignar Unidades de Control (Ajustar Fronteras)</text>
+</g>
+<!-- cond_bal&#45;&gt;adjust_terr -->
+<g id="edge5" class="edge">
+<title>cond_bal&#45;&gt;adjust_terr</title>
+<path fill="none" stroke="black" d="M203.05,-91.1C198.95,-84.13 195.29,-76.58 193,-69 190.82,-61.77 190,-53.68 189.88,-46.15"/>
+<polygon fill="black" stroke="black" points="193.38,-46.09 190.09,-36.02 186.38,-45.95 193.38,-46.09"/>
+<text text-anchor="middle" x="203.5" y="-57.8" font-family="Times,serif" font-size="14.00"> No</text>
+</g>
+<!-- assign -->
+<g id="node6" class="node">
+<title>assign</title>
+<polygon fill="#f9f9f9" stroke="black" points="597.5,-36 370.5,-36 370.5,0 597.5,0 597.5,-36"/>
+<text text-anchor="middle" x="484" y="-14.3" font-family="Helvetica,sans-Serif" font-size="14.00">4. Asignar Vendedores a Territorios</text>
+</g>
+<!-- cond_bal&#45;&gt;assign -->
+<g id="edge4" class="edge">
+<title>cond_bal&#45;&gt;assign</title>
+<path fill="none" stroke="black" d="M292.27,-97.64C335.74,-79.81 392.37,-56.58 432.79,-40.01"/>
+<polygon fill="black" stroke="black" points="434.26,-43.19 442.18,-36.15 431.6,-36.71 434.26,-43.19"/>
+<text text-anchor="middle" x="402" y="-57.8" font-family="Times,serif" font-size="14.00"> Sí</text>
+</g>
+<!-- adjust_terr&#45;&gt;cond_bal -->
+<g id="edge6" class="edge">
+<title>adjust_terr&#45;&gt;cond_bal</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M204.51,-36.14C208.03,-41.62 211.56,-47.87 214,-54 216.97,-61.45 219.33,-69.6 221.2,-77.63"/>
+<polygon fill="black" stroke="black" points="217.83,-78.6 223.32,-87.66 224.68,-77.16 217.83,-78.6"/>
+</g>
+</g>
+</svg>
+
+            </div>
+            <p style="font-size:0.8em; color:#999; text-align:center; margin-top:-20px; margin-bottom:30px;">
+                <em>Figura: Diagrama generado automáticamente mediante Graphviz</em>
+            </p>
+
+            <h3>Intuición</h3>
+            <div><p>Piensa en el diseño de territorios como cortar y repartir una tarta de cumpleaños entre niños muy competitivos. Si cortas la tarta en trozos geométricamente idénticos (división puramente geográfica), pero resulta que todas las fresas y el chocolate (clientes de alto valor) quedaron concentrados en uno o dos de los trozos, los niños que reciban el bizcocho seco se enfadarán y se irán de la fiesta (alta rotación de vendedores). Tu objetivo como planificador no es que los trozos tengan la misma forma en el mapa, sino que tengan exactamente la misma cantidad de calorías, sabor y fresas. Es un delicado acto de malabarismo donde debes asegurar que todos los comerciales sientan que tienen un territorio justo en el que, si trabajan duro, pueden alcanzar sus cuotas.</p></div>
+
+            <h3>Aplicación</h3>
+            <div><p>Un Director de Operaciones se enfrenta al rediseño de territorios cada vez que hay una reestructuración de plantilla, como la baja de un vendedor clave (territory orphan) o la entrada a un nuevo mercado. En la práctica, el director utiliza software especializado (como Salesforce Maps o TerrAlign) para importar los Códigos Postales, las cuentas existentes y los leads potenciales. Cuando detecta un territorio 'saturado' (donde el vendedor solo atiende al 20% de sus cuentas porque no da abasto, perdiendo oportunidades), el director aplica un rebalanceo. Divide ese territorio denso, transfiere parte de las cuentas periféricas a territorios colindantes que sufren de 'inanición' (vendedores con exceso de tiempo libre y pocas cuentas), y ajusta las cuotas. Esta alineación quirúrgica evita quemar a los mejores comerciales y maximiza la extracción de ingresos de cuentas previamente desatendidas.</p></div>
+        </article>
+        </body></html>
