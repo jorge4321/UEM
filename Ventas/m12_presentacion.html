@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación: Persuasión ante lo Inverosímil</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --bg-color: #ecf0f1;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .selector-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            flex: 0 1 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .rubrica-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+
+        .rubrica-table th, .rubrica-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            vertical-align: top;
+            width: 17%;
+        }
+
+        .rubrica-table th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+        }
+
+        .rubrica-table .dimension {
+            font-weight: bold;
+            background-color: #f8f9fa;
+            width: 15%;
+        }
+
+        .radio-container {
+            display: block;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .radio-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #eee;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .radio-container:hover input ~ .checkmark { background-color: #ccc; }
+        .radio-container input:checked ~ .checkmark { background-color: var(--secondary-color); }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .radio-container input:checked ~ .checkmark:after { display: block; }
+        .radio-container .checkmark:after {
+            top: 5px;
+            left: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover { background-color: #219a52; }
+        .btn-submit:disabled { background-color: #95a5a6; cursor: not-allowed; }
+
+        #mensaje {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        .mensaje-exito { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .mensaje-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        
+        ul { padding-left: 15px; margin-top: 5px; }
+        li { margin-bottom: 5px; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Rúbrica: Persuasión ante lo Inverosímil [cite: 2]</h1>
+
+    <div class="selector-section">
+        <div class="form-group">
+            <label for="alumnoSelect">Seleccionar Alumno:</label>
+            <select id="alumnoSelect">
+                <option value="">-- Selecciona un alumno --</option>
+            </select>
+        </div>
+    </div>
+
+    <form id="evalForm">
+        <table class="rubrica-table">
+            <thead>
+                <tr>
+                    <th>Dimensión y Peso</th>
+                    <th>Excelente (10 pts)</th>
+                    <th>Notable (8 pts)</th>
+                    <th>Suficiente (6 pts)</th>
+                    <th>Insuficiente (4 pts)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="dimension">1. Argumentación y Poder de Persuasión (30%) - El núcleo del reto [cite: 3]</td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim1" value="10" required> 10 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>La premisa es genuinamente difícil de creer. Construye un argumento lógicamente impecable y muy persuasivo. [cite: 4]</li>
+                            <li>Logra generar dudas razonables o convencer a una audiencia escéptica. [cite: 5]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim1" value="8"> 8 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>La premisa es desafiante. Los argumentos son sólidos y están bien estructurados, pero carecen del impacto final para derribar por completo el escepticismo de la clase. [cite: 6]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim1" value="6"> 6 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>La premisa es algo trivial o fácil de defender. Argumentación lineal y predecible. [cite: 7]</li>
+                            <li>Aporta pocas evidencias sólidas para respaldar su afirmación. [cite: 8]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim1" value="4"> 4 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>La premisa no cumple el requisito (es algo que todos creen). [cite: 9]</li>
+                            <li>Argumentación falaz, desestructurada o incapaz de sostener la idea planteada. [cite: 10]</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="dimension">2. Defensa en Turno de Preguntas (25%) - Agilidad y dominio [cite: 11]</td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim2" value="10" required> 10 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Responde a las preguntas más incisivas con absoluta seguridad, aportando datos o lógica de forma inmediata. [cite: 12]</li>
+                            <li>No evade ninguna cuestión y mantiene su postura firmemente. [cite: 13]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim2" value="8"> 8 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Responde correctamente a la mayoría de las preguntas. [cite: 14]</li>
+                            <li>Muestra buena agilidad mental, aunque duda ligeramente ante cuestiones muy complejas o imprevistas. [cite: 15]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim2" value="6"> 6 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Sobrevive al turno de preguntas con respuestas defensivas, vagas o repetitivas. [cite: 16]</li>
+                            <li>Evade el núcleo de las preguntas difíciles. [cite: 17]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim2" value="4"> 4 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Se derrumba ante el escepticismo de la audiencia. [cite: 18]</li>
+                            <li>Contradice su propia presentación o es incapaz de articular respuestas coherentes. [cite: 19]</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="dimension">3. Exposición Oral y Lenguaje No Verbal (20%) - Presencia ejecutiva [cite: 20]</td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim3" value="10" required> 10 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Dominio escénico absoluto. Contacto visual constante con toda el aula. Uso magistral de pausas, ritmo y entonación. [cite: 21]</li>
+                            <li>No lee en absoluto. [cite: 22]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim3" value="8"> 8 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Buena presencia. Habla con fluidez y claridad, pero ocasionalmente revisa sus notas o la pantalla. [cite: 23]</li>
+                            <li>Mantiene la atención de la clase la mayor parte del tiempo. [cite: 24]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim3" value="6"> 6 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Tono monótono o dudoso. Depende excesivamente de sus notas o de las diapositivas. [cite: 25]</li>
+                            <li>Contacto visual pobre o postura corporal cerrada. [cite: 26]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim3" value="4"> 4 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Lee la mayor parte de la presentación. [cite: 27]</li>
+                            <li>Tono inaudible o excesivamente nervioso que impide la comprensión y destruye la credibilidad. [cite: 28]</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="dimension">4. Soporte Visual (PPT/PDF) (15%) - Impacto y diseño [cite: 29]</td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim4" value="10" required> 10 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Diseño impecable y profesional. Altamente visual, fortalece el mensaje sin robar protagonismo. [cite: 30]</li>
+                            <li>Cero errores ortográficos y ausencia total de viñetas interminables de texto. [cite: 31]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim4" value="8"> 8 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Buen diseño general. Diapositivas limpias y legibles. [cite: 32]</li>
+                            <li>Ayuda a seguir el hilo de la presentación, aunque alguna diapositiva podría estar sobrecargada. [cite: 33]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim4" value="6"> 6 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Diapositivas plagadas de texto. El ponente las usa como teleprompter. [cite: 34]</li>
+                            <li>Diseño descuidado, imágenes de baja calidad o fallos de formato. [cite: 35]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim4" value="4"> 4 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>No presenta soporte visual o este es inaceptable (ilegible, caótico, con faltas de ortografía graves que restan toda autoridad académica). [cite: 36]</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="dimension">5. Gestión del Tiempo (10%) - Rigor profesional [cite: 37]</td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim5" value="10" required> 10 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Clava los 5 minutos con precisión milimétrica (margen de +/- 15 segundos). Cierre contundente y bien medido. [cite: 38]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim5" value="8"> 8 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Se ajusta bien al tiempo, con un desvío menor (+/- 30 segundos). [cite: 39]</li>
+                            <li>El cierre puede ser un poco apresurado. [cite: 40]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim5" value="6"> 6 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Desvío significativo (+/- 1 minuto). Se ve obligado a saltar partes de la presentación o la termina de forma abrupta. [cite: 41]</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <label class="radio-container">
+                            <input type="radio" name="dim5" value="4"> 4 Puntos
+                            <span class="checkmark"></span>
+                        </label>
+                        <ul>
+                            <li>Se excede groseramente del tiempo asignado, obligando a interrumpir la presentación, o dura menos de 3 minutos. [cite: 42]</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn-submit" id="btnGuardar" onclick="enviarDatos()">Guardar Calificación</button>
+    </form>
+
+    <div id="mensaje"></div>
+</div>
+
+<script>
+    // URL DE GOOGLE APPS SCRIPT
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFFpQHCApAEe2xbjlsUyRSCcUO89Ykp6qtfQgweCcLQ09btwAurEofrNh1jU1AHar-/exec';
+
+    // Lista de alumnos obtenida del JSON
+    const alumnosJSON = [
+        "ANALUISA MARTINEZ, Justin Steeven",
+        "CARREON CANSECO, Enrique",
+        "CONDE RUBIO, Guillermo",
+        "ELIZONDO DURÁN, Silvia Paola",
+        "GARCIA ROMERO, Andrés Gibran",
+        "GIRON SANJUR, Luis Carlos",
+        "HEREDERO DEL RÍO, Rodrigo",
+        "HERNÁNDEZ ESTRADA, David Gonzalo",
+        "JIMÉNEZ DÍAZ, Carlos",
+        "JOVE FLORES, Miguel Freddy",
+        "JOVER HERAS, ALBERTO",
+        "LOAEZA PAMPLONA, Bernardo",
+        "LÓPEZ ANDOSILLA, Carlos",
+        "MÉNDEZ PORRAS, Mariana Itzel",
+        "RANGEL HERNÁNDEZ, Mariela Carolina",
+        "RIERA LÓPEZ, Aldana",
+        "RODRÍGUEZ GONZÁLEZ, Carlos",
+        "RODRÍGUEZ MACÍAS, Joseph Rubén",
+        "TARAZONA SANCHEZ, Maria Paula",
+        "VENTURO CARDEÑA, Oswaldo Jeanpiere",
+        "VIEJO PALAFOX, Alejandro",
+        "ZHANG , Yaqi"
+    ];
+
+    window.onload = function() {
+        const alumnoSelect = document.getElementById("alumnoSelect");
+        alumnosJSON.forEach(function(alumno) {
+            let option = document.createElement("option");
+            option.value = alumno;
+            option.text = alumno;
+            alumnoSelect.appendChild(option);
+        });
+    }
+
+    function enviarDatos() {
+        const alumno = document.getElementById("alumnoSelect").value;
+        
+        const d1 = document.querySelector('input[name="dim1"]:checked');
+        const d2 = document.querySelector('input[name="dim2"]:checked');
+        const d3 = document.querySelector('input[name="dim3"]:checked');
+        const d4 = document.querySelector('input[name="dim4"]:checked');
+        const d5 = document.querySelector('input[name="dim5"]:checked');
+
+        const mensajeDiv = document.getElementById("mensaje");
+        const btnGuardar = document.getElementById("btnGuardar");
+
+        if (!alumno) {
+            mostrarMensaje("Por favor, selecciona un alumno.", "error");
+            return;
+        }
+        if (!d1 || !d2 || !d3 || !d4 || !d5) {
+            mostrarMensaje("Por favor, selecciona una puntuación para las 5 dimensiones.", "error");
+            return;
+        }
+
+        // Payload adaptado a las nuevas dimensiones y pesos
+        const payload = {
+            alumno: alumno,
+            argumentacion: parseInt(d1.value),
+            defensa: parseInt(d2.value),
+            exposicion: parseInt(d3.value),
+            soporte_visual: parseInt(d4.value),
+            gestion_tiempo: parseInt(d5.value),
+            // Calculo de nota de 0 a 10 con los pesos (30%, 25%, 20%, 15%, 10%)
+            nota_final: (parseInt(d1.value)*0.30 + parseInt(d2.value)*0.25 + parseInt(d3.value)*0.20 + parseInt(d4.value)*0.15 + parseInt(d5.value)*0.10).toFixed(2)
+        };
+
+        btnGuardar.disabled = true;
+        btnGuardar.innerText = "Guardando en Drive...";
+        mensajeDiv.style.display = "none";
+
+        fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8', 
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success" || data.result === "success") {
+                mostrarMensaje(`✅ Nota de ${alumno} guardada. Nota Final Calculada: ${payload.nota_final}`, "exito");
+                document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            } else {
+                mostrarMensaje("Aviso: Revisa Google Sheets para confirmar que se ha guardado, o hubo un error: " + (data.mensaje || JSON.stringify(data)), "error");
+            }
+        })
+        .catch(error => {
+            // A veces el fetch de Google Apps Script falla por CORS pero guarda el dato
+            mostrarMensaje("Petición completada (posible error de CORS). Por favor, verifica en tu Google Sheets si la nota de " + alumno + " se guardó correctamente.", "exito");
+        })
+        .finally(() => {
+            btnGuardar.disabled = false;
+            btnGuardar.innerText = "Guardar Calificación";
+        });
+    }
+
+    function mostrarMensaje(texto, tipo) {
+        const div = document.getElementById("mensaje");
+        div.innerText = texto;
+        div.className = tipo === "exito" ? "mensaje-exito" : "mensaje-error";
+        div.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
