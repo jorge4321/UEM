@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financiero - Malena</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f7f6; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+        .dashboard-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .card-full { grid-column: span 2; }
+        .chart-container { position: relative; height: 350px; width: 100%; }
+        h2 { font-size: 1.2rem; color: #34495e; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px;}
+        
+        @media (max-width: 768px) { 
+            .dashboard-container { grid-template-columns: 1fr; } 
+            .card-full { grid-column: span 1; } 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dashboard Financiero (Últimos 12 Meses)</h1>
+
+    <div class="dashboard-container">
+        
+        <div class="card card-full">
+            <h2>1. Flujo de Caja Mensual (Jun 25 - May 26)</h2>
+            <div class="chart-container">
+                <canvas id="cashFlowChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>2. Gasto Promedio Mensual</h2>
+            <div class="chart-container">
+                <canvas id="gastosChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. Ingreso Promedio Mensual</h2>
+            <div class="chart-container">
+                <canvas id="ingresosChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card card-full">
+            <h2>4. Evolución de pagos a SAR RESID.ASIS</h2>
+            <div class="chart-container">
+                <canvas id="sarChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Etiquetas comunes de tiempo
+        const meses = ['Jun 2025', 'Jul 2025', 'Ago 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 2026'];
+
+        // 1. Gráfico de Flujo de Caja (Mixto: Barras y Línea)
+        const ctxCashFlow = document.getElementById('cashFlowChart').getContext('2d');
+        new Chart(ctxCashFlow, {
+            type: 'bar',
+            data: {
+                labels: meses,
+                datasets: [
+                    { 
+                        label: 'Ingresos Totales (€)', 
+                        data: [3320.00, 3309.46, 2235.68, 1660.00, 2811.36, 3895.68, 2235.68, 2353.08, 2613.66, 2456.65, 8477.93, 0.00], 
+                        backgroundColor: '#2ecc71',
+                        borderRadius: 4
+                    },
+                    { 
+                        label: 'Gastos Totales (€)', 
+                        data: [4086.31, 4450.24, 4168.14, 4410.37, 4123.77, 5222.93, 4244.76, 4237.97, 4650.83, 158.60, 8674.97, 4365.98], 
+                        backgroundColor: '#e74c3c',
+                        borderRadius: 4
+                    },
+                    { 
+                        label: 'Saldo Neto (€)', 
+                        type: 'line', 
+                        data: [-766.31, -1140.78, -1932.46, -2750.37, -1312.41, -1327.25, -2009.08, -1884.89, -2037.17, 2298.05, -197.04, -4365.98], 
+                        borderColor: '#3498db', 
+                        borderWidth: 3, 
+                        fill: false, 
+                        tension: 0.3,
+                        pointBackgroundColor: '#2980b9'
+                    }
+                ]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } } 
+            }
+        });
+
+        // 2. Gráfico de Gasto Promedio (Doughnut)
+        const ctxGastos = document.getElementById('gastosChart').getContext('2d');
+        new Chart(ctxGastos, {
+            type: 'doughnut',
+            data: {
+                labels: ['Vivienda (SAR)', 'Impuestos', 'Electricidad', 'Telecomunicaciones', 'Seguros', 'Agua', 'Donaciones'],
+                datasets: [{
+                    data: [3875.66, 120.72, 83.76, 57.85, 56.53, 19.25, 5.83],
+                    backgroundColor: ['#e74c3c', '#f1c40f', '#f39c12', '#9b59b6', '#34495e', '#3498db', '#95a5a6']
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'right' } } 
+            }
+        });
+
+        // 3. Gráfico de Ingreso Promedio (Pie)
+        const ctxIngresos = document.getElementById('ingresosChart').getContext('2d');
+        new Chart(ctxIngresos, {
+            type: 'pie',
+            data: {
+                labels: ['Pensión Magdalena', 'Pensión Ramon', 'Ayuda Dependencia', 'Ingresos Extraordinarios'],
+                datasets: [{
+                    data: [958.66, 958.66, 595.17, 271.64],
+                    backgroundColor: ['#2ecc71', '#27ae60', '#1abc9c', '#f1c40f']
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'right' } } 
+            }
+        });
+
+        // 4. Gráfico Evolución SAR RESID.ASIS (Barras)
+        const ctxSar = document.getElementById('sarChart').getContext('2d');
+        new Chart(ctxSar, {
+            type: 'bar',
+            data: {
+                labels: meses,
+                datasets: [{
+                    label: 'Pagos Mensuales SAR RESID.ASIS (€)',
+                    data: [3890.04, 3891.34, 3831.14, 3890.04, 3889.14, 3885.70, 3872.34, 4156.20, 4172.42, 0.00, 8248.12, 4113.81],
+                    backgroundColor: '#8e44ad',
+                    borderRadius: 4
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } } 
+            }
+        });
+    </script>
+</body>
+</html>
