@@ -3,193 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe de Flujo de Caja - Últimos 12 Meses</title>
+    <title>Informe Visual de Flujo de Caja</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #3b393b;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
+        .dashboard-container {
+            background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         h1 {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 10px;
+            color: #2c4c68;
+            margin-bottom: 5px;
+            font-size: 28px;
         }
         p.subtitle {
             text-align: center;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-top: 0;
+            margin-bottom: 40px;
+            font-size: 14px;
         }
-        .summary-cards {
+        .kpi-container {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
             gap: 20px;
+            margin-bottom: 40px;
         }
-        .card {
+        .kpi-card {
             flex: 1;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 20px 10px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.1em;
+        .kpi-title {
+            font-size: 14px;
+            font-weight: 600;
             color: #555;
+            margin-bottom: 10px;
         }
-        .card p {
-            margin: 0;
-            font-size: 1.8em;
+        .kpi-value {
+            font-size: 26px;
             font-weight: bold;
         }
-        .card.income {
-            background-color: #e8f8f5;
-            border-left: 5px solid #1abc9c;
-        }
-        .card.income p { color: #16a085; }
         
-        .card.expense {
+        /* Specific Card Styles */
+        .card-ingresos {
+            background-color: #ebf9f5;
+            border-left: 6px solid #48c9b0;
+        }
+        .card-ingresos .kpi-value { color: #1abc9c; }
+        
+        .card-gastos {
             background-color: #fdedec;
-            border-left: 5px solid #e74c3c;
+            border-left: 6px solid #f1948a;
         }
-        .card.expense p { color: #c0392b; }
+        .card-gastos .kpi-value { color: #e74c3c; }
         
-        .card.net {
+        .card-flujo {
             background-color: #ebf5fb;
-            border-left: 5px solid #3498db;
+            border-left: 6px solid #3498db;
         }
-        .card.net p { color: #2980b9; }
-
+        .card-flujo .kpi-value { color: #2980b9; }
+        
         .chart-container {
             position: relative;
-            height: 500px;
+            height: 450px;
             width: 100%;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Informe Visual de Flujo de Caja</h1>
-    <p class="subtitle">Período: Junio 2025 - Mayo 2026</p>
+    <div class="dashboard-container">
+        <h1>Informe Visual de Flujo de Caja</h1>
+        <p class="subtitle">Período: Junio 2025 - Mayo 2026</p>
 
-    <div class="summary-cards">
-        <div class="card income">
-            <h3>Ingresos Totales</h3>
-            <p>39.460,18 €</p>
+        <div class="kpi-container">
+            <div class="kpi-card card-ingresos">
+                <div class="kpi-title">Ingresos Totales</div>
+                <div class="kpi-value">35.369,18 €</div>
+            </div>
+            <div class="kpi-card card-gastos">
+                <div class="kpi-title">Gastos Totales</div>
+                <div class="kpi-value">52.794,87 €</div>
+            </div>
+            <div class="kpi-card card-flujo">
+                <div class="kpi-title">Flujo Neto</div>
+                <div class="kpi-value">-17.425,69 €</div>
+            </div>
         </div>
-        <div class="card expense">
-            <h3>Gastos Totales</h3>
-            <p>56.885,87 €</p>
-        </div>
-        <div class="card net">
-            <h3>Flujo Neto</h3>
-            <p>-17.425,69 €</p>
+
+        <div class="chart-container">
+            <canvas id="flujoCajaChart"></canvas>
         </div>
     </div>
 
-    <div class="chart-container">
-        <canvas id="cashFlowChart"></canvas>
-    </div>
-</div>
+    <script>
+        const ctx = document.getElementById('flujoCajaChart').getContext('2d');
+        
+        // Formateador para Euros
+        const eurFormatter = new Intl.NumberFormat('es-ES', {
+            style: 'currency',
+            currency: 'EUR',
+            minimumFractionDigits: 0
+        });
 
-<script>
-    const labels = ['Jun 2025', 'Jul 2025', 'Ago 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 2026'];
-    const ingresos = [3320.00, 3309.46, 2235.68, 1660.00, 2811.36, 3895.68, 2235.68, 2353.08, 2613.66, 2456.65, 12568.93, 0.00];
-    const gastos = [4086.31, 4450.24, 4168.14, 4410.37, 4123.77, 5222.93, 4244.76, 4237.97, 4650.83, 158.60, 12765.97, 4365.98];
-    const flujoNeto = [-766.31, -1140.78, -1932.46, -2750.37, -1312.41, -1327.25, -2009.08, -1884.89, -2037.17, 2298.05, -197.04, -4365.98];
-
-    const ctx = document.getElementById('cashFlowChart').getContext('2d');
-    const cashFlowChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Ingresos (€)',
-                    data: ingresos,
-                    backgroundColor: 'rgba(26, 188, 156, 0.7)',
-                    borderColor: 'rgba(26, 188, 156, 1)',
-                    borderWidth: 1,
-                    borderRadius: 4
-                },
-                {
-                    label: 'Gastos (€)',
-                    data: gastos,
-                    backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                    borderColor: 'rgba(231, 76, 60, 1)',
-                    borderWidth: 1,
-                    borderRadius: 4
-                },
-                {
-                    label: 'Flujo Neto (€)',
-                    data: flujoNeto,
-                    type: 'line',
-                    fill: false,
-                    borderColor: 'rgba(52, 152, 219, 1)',
-                    backgroundColor: 'rgba(52, 152, 219, 1)',
-                    tension: 0.3,
-                    borderWidth: 3,
-                    pointBackgroundColor: 'rgba(52, 152, 219, 1)',
-                    pointRadius: 4
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Jun 2025", "Jul 2025", "Ago 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dic 2025", "Ene 2026", "Feb 2026", "Mar 2026", "Abr 2026", "May 2026"],
+                datasets: [
+                    {
+                        label: 'Ingresos (€)',
+                        data: [3320.0, 3309.46, 2235.68, 1660.0, 2811.36, 3895.68, 2235.68, 2353.08, 2613.66, 2456.65, 8477.93, 0.0],
+                        backgroundColor: '#48c9b0', // Teal
+                        borderRadius: 3,
+                        order: 2,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.8
+                    },
+                    {
+                        label: 'Gastos (€)',
+                        data: [4086.31, 4450.24, 4168.14, 4410.37, 4123.77, 5222.93, 4244.76, 4237.97, 4650.83, 158.6, 8674.97, 4365.98],
+                        backgroundColor: '#f1948a', // Light Red
+                        borderRadius: 3,
+                        order: 3,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.8
+                    },
+                    {
+                        label: 'Flujo Neto (€)',
+                        type: 'line',
+                        data: [-766.31, -1140.78, -1932.46, -2750.37, -1312.41, -1327.25, -2009.08, -1884.89, -2037.17, 2298.05, -197.04, -4365.98],
+                        borderColor: '#3498db', // Blue
+                        backgroundColor: '#3498db',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#3498db',
+                        fill: false,
+                        tension: 0.3,
+                        order: 1
+                    }
+                ]
             },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            boxWidth: 8,
+                            padding: 20,
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 12
                             }
-                            if (context.parsed.y !== null) {
-                                label += new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(context.parsed.y);
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += eurFormatter.format(context.parsed.y);
+                                }
+                                return label;
                             }
-                            return label;
                         }
                     }
                 },
-                legend: {
-                    position: 'top',
-                    labels: {
-                        font: {
-                            size: 14
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f0f0f0',
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return eurFormatter.format(value).replace(',00', '');
+                            },
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 11
+                            },
+                            color: '#888'
                         }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumSignificantDigits: 3 }).format(value);
+                    },
+                    x: {
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 11
+                            },
+                            color: '#888'
                         }
                     }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
