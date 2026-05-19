@@ -89,20 +89,20 @@
 
     <div class="dashboard-container">
         <h1>Informe Visual de Flujo de Caja</h1>
-        <p class="subtitle">Período: Junio 2025 - Mayo 2026 (SAR Resid. Asist. Abril Consolidado)</p>
+        <p class="subtitle">Período: Mayo 2025 - Abril 2026</p>
 
         <div class="kpi-container">
             <div class="kpi-card card-ingresos">
                 <div class="kpi-title">Ingresos Totales</div>
-                <div class="kpi-value">35.369,18 €</div>
+                <div class="kpi-value">37.604,86 €</div>
             </div>
             <div class="kpi-card card-gastos">
                 <div class="kpi-title">Gastos Totales</div>
-                <div class="kpi-value">52.794,87 €</div>
+                <div class="kpi-value">52.453,47 €</div>
             </div>
             <div class="kpi-card card-flujo">
                 <div class="kpi-title">Flujo Neto</div>
-                <div class="kpi-value">-17.425,69 €</div>
+                <div class="kpi-value">-14.848,61 €</div>
             </div>
         </div>
 
@@ -124,11 +124,11 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Jun 2025", "Jul 2025", "Ago 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dic 2025", "Ene 2026", "Feb 2026", "Mar 2026", "Abr 2026", "May 2026"],
+                labels: ["May 2025", "Jun 2025", "Jul 2025", "Ago 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dic 2025", "Ene 2026", "Feb 2026", "Mar 2026", "Abr 2026"],
                 datasets: [
                     {
                         label: 'Ingresos (€)',
-                        data: [3320.0, 3309.46, 2235.68, 1660.0, 2811.36, 3895.68, 2235.68, 2353.08, 2613.66, 2456.65, 8477.93, 0.0],
+                        data: [2235.68, 3320.0, 3309.46, 2235.68, 1660.0, 2811.36, 3895.68, 2235.68, 2353.08, 2613.66, 2456.65, 8477.93],
                         backgroundColor: '#48c9b0', // Teal
                         borderRadius: 3,
                         order: 2,
@@ -137,7 +137,7 @@
                     },
                     {
                         label: 'Gastos (€)',
-                        data: [4086.31, 4450.24, 4168.14, 4410.37, 4123.77, 5222.93, 4244.76, 4237.97, 4650.83, 158.6, 8674.97, 4365.98],
+                        data: [4024.58, 4086.31, 4450.24, 4168.14, 4410.37, 4123.77, 5222.93, 4244.76, 4237.97, 4650.83, 158.6, 8674.97],
                         backgroundColor: '#f1948a', // Light Red
                         borderRadius: 3,
                         order: 3,
@@ -147,7 +147,7 @@
                     {
                         label: 'Flujo Neto (€)',
                         type: 'line',
-                        data: [-766.31, -1140.78, -1932.46, -2750.37, -1312.41, -1327.25, -2009.08, -1884.89, -2037.17, 2298.05, -197.04, -4365.98],
+                        data: [-1788.9, -766.31, -1140.78, -1932.46, -2750.37, -1312.41, -1327.25, -2009.08, -1884.89, -2037.17, 2298.05, -197.04],
                         borderColor: '#3498db', // Blue
                         backgroundColor: '#3498db',
                         borderWidth: 2,
