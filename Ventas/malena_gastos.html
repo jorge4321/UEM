@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desglose de Gastos Mensuales (Sin Residencia)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #3b393b;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .dashboard-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        h1 {
+            text-align: center;
+            color: #2c4c68;
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 0;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Evolución de Gastos por Servicio</h1>
+        <p class="subtitle">Gráfico Apilado (Mayo 2025 - Abril 2026) *Excluye SAR Resid. Asist.</p>
+
+        <div class="chart-container">
+            <canvas id="gastosStackedChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('gastosStackedChart').getContext('2d');
+        
+        const eurFormatter = new Intl.NumberFormat('es-ES', {
+            style: 'currency',
+            currency: 'EUR',
+            minimumFractionDigits: 0
+        });
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["May 2025", "Jun 2025", "Jul 2025", "Ago 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dic 2025", "Ene 2026", "Feb 2026", "Mar 2026", "Abr 2026"],
+                datasets: [
+                    {
+                        label: 'Electricidad',
+                        data: [0.0, 133.97, 0.0, 174.28, 0.0, 168.8, 0.0, 175.1, 0.0, 310.99, 0.0, 181.05],
+                        backgroundColor: '#f39c12', // Naranja/Amarillo
+                        borderRadius: 3
+                    },
+                    {
+                        label: 'Impuestos y Tasas',
+                        data: [0.0, 0.0, 0.0, 52.5, 0.0, 0.0, 1202.44, 112.5, 0.0, 0.0, 97.5, 185.0],
+                        backgroundColor: '#e67e22', // Naranja oscuro
+                        borderRadius: 3
+                    },
+                    {
+                        label: 'Seguros y Previsión',
+                        data: [0.0, 0.0, 498.1, 0.0, 459.53, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        backgroundColor: '#34495e', // Azul oscuro
+                        borderRadius: 3
+                    },
+                    {
+                        label: 'Telecomunicaciones',
+                        data: [58.87, 52.3, 50.8, 52.65, 50.8, 55.83, 65.27, 74.82, 71.77, 54.35, 51.1, 50.8],
+                        backgroundColor: '#9b59b6', // Púrpura
+                        borderRadius: 3
+                    },
+                    {
+                        label: 'Agua',
+                        data: [48.57, 0.0, 0.0, 47.57, 0.0, 0.0, 59.52, 0.0, 0.0, 103.07, 0.0, 0.0],
+                        backgroundColor: '#3498db', // Azul claro
+                        borderRadius: 3
+                    },
+                    {
+                        label: 'Donaciones',
+                        data: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
+                        backgroundColor: '#95a5a6', // Gris
+                        borderRadius: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            boxWidth: 8,
+                            padding: 20,
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += eurFormatter.format(context.parsed.y);
+                                }
+                                return label;
+                            },
+                            footer: function(tooltipItems) {
+                                let sum = 0;
+                                tooltipItems.forEach(function(tooltipItem) {
+                                    sum += tooltipItem.parsed.y;
+                                });
+                                return '\nTotal Mensual: ' + eurFormatter.format(sum);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false },
+                        ticks: {
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 11
+                            },
+                            color: '#888'
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            color: '#f0f0f0',
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return eurFormatter.format(value).replace(',00', '');
+                            },
+                            font: {
+                                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+                                size: 11
+                            },
+                            color: '#888'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
